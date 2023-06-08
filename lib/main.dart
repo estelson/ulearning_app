@@ -18,45 +18,20 @@ class MyApp extends StatelessWidget {
       create: (context) => AppBlocs(),
       child: const MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: MyHomePage(
-          title: "Flutter Demo Home Page",
-        ),
+        home: MyHomePage(),
       ),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  void _decrementCounter() {
-    setState(() {
-      if (_counter > 0) {
-        _counter--;
-      }
-    });
-  }
+class MyHomePage extends StatelessWidget {
+  const MyHomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: const Text("Flutter Demo Home Page"),
         centerTitle: true,
         // Cor da StatusBar em dispositivos mobile
         systemOverlayStyle: const SystemUiOverlayStyle(
@@ -64,20 +39,23 @@ class _MyHomePageState extends State<MyHomePage> {
           statusBarIconBrightness: Brightness.light,
         ),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              "${BlocProvider.of<AppBlocs>(context).state.counter}",
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
+      body: Center(child: BlocBuilder<AppBlocs, AppStates>(
+        builder: (context, state) {
+          return Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              const Text(
+                'You have pushed the button this many times:',
+              ),
+              Text(
+                // "${BlocProvider.of<AppBlocs>(context).state.counter}",
+                "${state.counter}",
+                style: Theme.of(context).textTheme.headlineMedium,
+              ),
+            ],
+          );
+        },
+      )),
       floatingActionButton: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
