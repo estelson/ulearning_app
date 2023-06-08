@@ -5,5 +5,5 @@ class AppStates {
 }
 
 class InitStates extends AppStates {
-  InitStates() : super(counter: 0);
+  InitStates() : super(counter: -2);
 }
