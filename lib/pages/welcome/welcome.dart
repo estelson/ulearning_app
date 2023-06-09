@@ -2,6 +2,7 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ulearning_app/main.dart';
 import 'package:ulearning_app/pages/welcome/bloc/welcome_blocs.dart';
 import 'package:ulearning_app/pages/welcome/bloc/welcome_events.dart';
 import 'package:ulearning_app/pages/welcome/bloc/welcome_states.dart';
@@ -136,11 +137,14 @@ class _WelcomeState extends State<Welcome> {
               // transition animation
               pageController.animateToPage(
                 index,
-                duration: const Duration(milliseconds: 1000),
+                duration: const Duration(milliseconds: 500),
                 curve: Curves.easeIn,
               );
             } else {
               // jump to a new page
+              Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => const MyHomePage()),
+              );
             }
           },
           child: Container(
