@@ -44,6 +44,9 @@ dependencies:
   # layout on different screen sizes!
   flutter_screenutil: ^5.8.4
 
+  # Widget to display dots indicator to show a position (for a PageView for example).
+  dots_indicator: ^3.0.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

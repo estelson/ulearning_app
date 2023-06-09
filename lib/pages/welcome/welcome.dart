@@ -1,3 +1,4 @@
+import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -18,6 +19,7 @@ class _WelcomeState extends State<Welcome> {
           margin: EdgeInsets.only(top: 34.h),
           width: 375.w,
           child: Stack(
+            alignment: Alignment.topCenter,
             children: [
               PageView(
                 physics: const BouncingScrollPhysics(),
@@ -47,6 +49,22 @@ class _WelcomeState extends State<Welcome> {
                     imagePath: "Image three",
                   ),
                 ],
+              ),
+              Positioned(
+                top: 460.h,
+                child: DotsIndicator(
+                  dotsCount: 3,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  decorator: DotsDecorator(
+                    color: Colors.grey,
+                    size: const Size.square(8.0),
+                    activeColor: Colors.blue,
+                    activeSize: const Size(10.0, 8.0),
+                    activeShape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                  ),
+                ),
               )
             ],
           ),
