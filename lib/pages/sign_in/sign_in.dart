@@ -14,6 +14,14 @@ class _SignInState extends State<SignIn> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: buildAppBar(),
+      body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
+        child: Column(
+          children: [
+            buildThirdPartyLogin(context),
+          ],
+        ),
+      ),
     );
   }
 }
