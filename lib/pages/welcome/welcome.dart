@@ -1,6 +1,10 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ulearning_app/pages/welcome/bloc/welcome_blocs.dart';
+import 'package:ulearning_app/pages/welcome/bloc/welcome_events.dart';
+import 'package:ulearning_app/pages/welcome/bloc/welcome_states.dart';
 
 class Welcome extends StatefulWidget {
   const Welcome({Key? key}) : super(key: key);
@@ -15,59 +19,70 @@ class _WelcomeState extends State<Welcome> {
     return Container(
       color: Colors.white,
       child: Scaffold(
-        body: Container(
-          margin: EdgeInsets.only(top: 34.h),
-          width: 375.w,
-          child: Stack(
-            alignment: Alignment.topCenter,
-            children: [
-              PageView(
-                physics: const BouncingScrollPhysics(),
+        body: BlocBuilder<WelcomeBloc, WelcomeState>(
+          builder: (context, state) {
+            return Container(
+              margin: EdgeInsets.only(top: 34.h),
+              width: 375.w,
+              child: Stack(
+                alignment: Alignment.topCenter,
                 children: [
-                  _page(
-                    index: 1,
-                    context: context,
-                    buttonName: "Next",
-                    title: "First see learning",
-                    subtitle: "Forget about a for of paper all knowledge in one learning.",
-                    imagePath: "Image one",
+                  PageView(
+                    onPageChanged: (index) {
+                      state.page = index;
+                      BlocProvider.of<WelcomeBloc>(context).add(WelcomeEvent());
+
+                      debugPrint("Index value is $index");
+                    },
+                    physics: const BouncingScrollPhysics(),
+                    children: [
+                      _page(
+                        index: 1,
+                        context: context,
+                        buttonName: "Next",
+                        title: "First see learning",
+                        subtitle: "Forget about a for of paper all knowledge in one learning.",
+                        imagePath: "Image one",
+                      ),
+                      _page(
+                        index: 2,
+                        context: context,
+                        buttonName: "Next",
+                        title: "Connect with everyone",
+                        subtitle: "Always keep in touch with your tutor & friend. Let's get connected!",
+                        imagePath: "Image two",
+                      ),
+                      _page(
+                        index: 3,
+                        context: context,
+                        buttonName: "Get started",
+                        title: "Always fascinated learning",
+                        subtitle: "Anywhere, anytime. The time is at your discretion so study whenever you want.",
+                        imagePath: "Image three",
+                      ),
+                    ],
                   ),
-                  _page(
-                    index: 2,
-                    context: context,
-                    buttonName: "Next",
-                    title: "Connect with everyone",
-                    subtitle: "Always keep in touch with your tutor & friend. Let's get connected!",
-                    imagePath: "Image two",
-                  ),
-                  _page(
-                    index: 3,
-                    context: context,
-                    buttonName: "Get started",
-                    title: "Always fascinated learning",
-                    subtitle: "Anywhere, anytime. The time is at your discretion so study whenever you want.",
-                    imagePath: "Image three",
-                  ),
+                  Positioned(
+                    top: 460.h,
+                    child: DotsIndicator(
+                      position: state.page,
+                      dotsCount: 3,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      decorator: DotsDecorator(
+                        color: Colors.grey,
+                        size: const Size.square(8.0),
+                        activeColor: Colors.blue,
+                        activeSize: const Size(10.0, 8.0),
+                        activeShape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5.0),
+                        ),
+                      ),
+                    ),
+                  )
                 ],
               ),
-              Positioned(
-                top: 460.h,
-                child: DotsIndicator(
-                  dotsCount: 3,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  decorator: DotsDecorator(
-                    color: Colors.grey,
-                    size: const Size.square(8.0),
-                    activeColor: Colors.blue,
-                    activeSize: const Size(10.0, 8.0),
-                    activeShape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(5.0),
-                    ),
-                  ),
-                ),
-              )
-            ],
-          ),
+            );
+          },
         ),
       ),
     );
