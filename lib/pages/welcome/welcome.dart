@@ -31,8 +31,6 @@ class _WelcomeState extends State<Welcome> {
                     onPageChanged: (index) {
                       state.page = index;
                       BlocProvider.of<WelcomeBloc>(context).add(WelcomeEvent());
-
-                      debugPrint("Index value is $index");
                     },
                     physics: const BouncingScrollPhysics(),
                     children: [
@@ -42,7 +40,7 @@ class _WelcomeState extends State<Welcome> {
                         buttonName: "Next",
                         title: "First see learning",
                         subtitle: "Forget about a for of paper all knowledge in one learning.",
-                        imagePath: "Image one",
+                        imagePath: "assets/images/reading.png",
                       ),
                       _page(
                         index: 2,
@@ -50,7 +48,7 @@ class _WelcomeState extends State<Welcome> {
                         buttonName: "Next",
                         title: "Connect with everyone",
                         subtitle: "Always keep in touch with your tutor & friend. Let's get connected!",
-                        imagePath: "Image two",
+                        imagePath: "assets/images/boy.png",
                       ),
                       _page(
                         index: 3,
@@ -58,7 +56,7 @@ class _WelcomeState extends State<Welcome> {
                         buttonName: "Get started",
                         title: "Always fascinated learning",
                         subtitle: "Anywhere, anytime. The time is at your discretion so study whenever you want.",
-                        imagePath: "Image three",
+                        imagePath: "assets/images/man.png",
                       ),
                     ],
                   ),
@@ -101,7 +99,10 @@ class _WelcomeState extends State<Welcome> {
         SizedBox(
           width: 345.w,
           height: 375.w,
-          child: Text(imagePath),
+          child: Image.asset(
+            imagePath,
+            fit: BoxFit.fill,
+          ),
         ),
         Container(
           child: Text(
