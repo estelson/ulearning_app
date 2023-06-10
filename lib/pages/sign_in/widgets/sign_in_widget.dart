@@ -55,7 +55,7 @@ Widget reusableText(String text) {
     child: Text(
       text,
       style: TextStyle(
-        color: Colors.grey.withOpacity(0.9),
+        color: Colors.grey.withOpacity(0.5),
         fontWeight: FontWeight.normal,
         fontSize: 14.sp,
       ),
@@ -67,7 +67,54 @@ Widget buildTextField(String text, String textType) {
   return Container(
     width: 325.w,
     height: 50.h,
-    color: Colors.red,
-    child: Text("Hi"),
+    decoration: BoxDecoration(
+      color: Colors.white,
+      borderRadius: BorderRadius.all(Radius.circular(15.w)),
+      border: Border.all(color: Colors.black),
+    ),
+    child: Row(
+      children: [
+        Container(
+          margin: EdgeInsets.only(left: 17.w),
+          width: 16.w,
+          height: 16.w,
+          child: Image.asset("assets/icons/user.png"),
+        ),
+        Container(
+          width: 270.w,
+          height: 50.h,
+          child: TextField(
+            keyboardType: TextInputType.multiline,
+            decoration: InputDecoration(
+              hintText: "Enter your e-mail address",
+              enabledBorder: const OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Colors.transparent,
+                ),
+              ),
+              disabledBorder: const OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Colors.transparent,
+                ),
+              ),
+              focusedBorder: const OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: Colors.transparent,
+                ),
+              ),
+              hintStyle: TextStyle(
+                color: Colors.grey.withOpacity(0.5),
+              ),
+            ),
+            style: TextStyle(
+              color: Colors.black,
+              fontFamily: "Avenir",
+              fontWeight: FontWeight.normal,
+              fontSize: 14.sp,
+            ),
+          ),
+        ),
+      ],
+    ),
   );
 }
