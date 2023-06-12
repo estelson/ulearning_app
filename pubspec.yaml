@@ -50,8 +50,9 @@ dependencies:
   # parsing, and bidirectional text.
   intl: ^0.18.1
 
-  # A Flutter plugin to use the Cloud Firestore API.
+  # Firebase libs
   cloud_firestore: ^4.8.0
+  firebase_auth: ^4.6.2
 
 dev_dependencies:
   flutter_test:
