@@ -121,3 +121,23 @@ Widget buildTextField(String hintText, String textType, String iconName) {
     ),
   );
 }
+
+Widget forgotPassword() {
+  return Container(
+    margin: EdgeInsets.only(left: 25.w),
+    width: 260.w,
+    height: 44.h,
+    child: GestureDetector(
+      onTap: () {},
+      child: Text(
+        "Forgot password",
+        style: TextStyle(
+          color: Colors.black,
+          decoration: TextDecoration.underline,
+          decorationColor: Colors.blue,
+          fontSize: 12.sp,
+        ),
+      ),
+    ),
+  );
+}
