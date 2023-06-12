@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ulearning_app/pages/sign_in/widgets/sign_in_widget.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ulearning_app/pages/common_widgets.dart';
 
 class Register extends StatefulWidget {
   const Register({super.key});
@@ -16,13 +17,52 @@ class _RegisterState extends State<Register> {
       child: SafeArea(
         child: Scaffold(
           backgroundColor: Colors.white,
-          appBar: buildAppBar(title: "Registration"),
-          body: const SingleChildScrollView(
-            physics: BouncingScrollPhysics(),
+          appBar: buildAppBar(title: "Log In"),
+          body: SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("Register Screen"),
+                Center(
+                  child: reusableText("Enter your details below && free sign up"),
+                ),
+                Container(
+                  margin: EdgeInsets.only(top: 36.h),
+                  padding: EdgeInsets.only(left: 25.w, right: 25.w),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      reusableText("E-mail"),
+                      SizedBox(height: 5.h),
+                      buildTextField(
+                        "Enter your e-mail address",
+                        "e-mail",
+                        "user",
+                        (value) {
+                          // context.read<SignInBloc>().add(EmailEvent(value));
+                        },
+                      ),
+                      reusableText("Password"),
+                      SizedBox(height: 5.h),
+                      buildTextField(
+                        "Enter your password",
+                        "password",
+                        "lock",
+                        (value) {
+                          // context.read<SignInBloc>().add(PasswordEvent(value));
+                        },
+                      ),
+                    ],
+                  ),
+                ),
+                forgotPassword(),
+                buildLogInAndRegButton(
+                  "Register",
+                  "register",
+                  () {
+                    Navigator.of(context).pushNamed("register");
+                  },
+                ),
               ],
             ),
           ),
