@@ -34,6 +34,21 @@ class SignInController {
             email: emailAddress,
             password: password,
           );
+
+          if(credential.user == null) {
+            ///
+          }
+
+          if(!credential.user!.emailVerified) {
+            ///
+          }
+
+          var user = credential.user;
+          if(user != null) {
+            /// We got verified user from Firebase Auth
+          } else {
+            /// We have error getting user from Firebase Auth
+          }
         } catch (e) {}
       }
     } catch (e) {}
