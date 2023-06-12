@@ -1,6 +1,6 @@
 # EJL u-Learning
 
-A new Flutter project.
+Projeto de curso da Udemy - Course Selling Online App Using Flutter for iOS and Android.
 
 ## Getting Started
 
