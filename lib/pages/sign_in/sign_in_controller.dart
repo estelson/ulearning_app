@@ -27,11 +27,13 @@ class SignInController {
         if (emailAddress.isEmpty) {
           ///
           toastInfo(msg: "You need to fill e-mail address");
+          return;
         }
 
         if (password.isEmpty) {
           ///
           toastInfo(msg: "You need to fill password");
+          return;
         }
 
         try {
@@ -43,11 +45,13 @@ class SignInController {
           if (credential.user == null) {
             ///
             toastInfo(msg: "You don't exists");
+            return;
           }
 
           if (!credential.user!.emailVerified) {
             ///
             toastInfo(msg: "You need to verify your e-mail account");
+            return;
           }
 
           var user = credential.user;
@@ -57,6 +61,7 @@ class SignInController {
           } else {
             /// We have error getting user from Firebase Auth
             toastInfo(msg: "Currently you are not a user of this app");
+            return;
           }
         } on FirebaseAuthException catch (e) {
           if (e.code == "user-not-found") {
