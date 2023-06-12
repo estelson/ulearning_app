@@ -1,6 +1,9 @@
+// ignore_for_file: empty_catches
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ulearning_app/common/widgets/flutter_toast.dart';
 import 'package:ulearning_app/pages/sign_in/bloc/sign_in_blocs.dart';
 
 class SignInController {
@@ -23,12 +26,12 @@ class SignInController {
 
         if (emailAddress.isEmpty) {
           ///
-          debugPrint("\nemail is empty\n");
+          toastInfo(msg: "You need to fill e-mail address");
         }
 
         if (password.isEmpty) {
           ///
-          debugPrint("\npassword is empty\n");
+          toastInfo(msg: "You need to fill password");
         }
 
         try {
@@ -37,31 +40,31 @@ class SignInController {
             password: password,
           );
 
-          if(credential.user == null) {
+          if (credential.user == null) {
             ///
-            debugPrint("\nuser does not exists\n");
+            toastInfo(msg: "You don't exists");
           }
 
-          if(!credential.user!.emailVerified) {
+          if (!credential.user!.emailVerified) {
             ///
-            debugPrint("\nemail not verified\n");
+            toastInfo(msg: "You need to verify your e-mail account");
           }
 
           var user = credential.user;
-          if(user != null) {
+          if (user != null) {
             /// We got verified user from Firebase Auth
             debugPrint("\nuser exists\n");
           } else {
             /// We have error getting user from Firebase Auth
-            debugPrint("\nno user found\n");
+            toastInfo(msg: "Currently you are not a user of this app");
           }
         } on FirebaseAuthException catch (e) {
-          if(e.code == "user-not-found") {
-            debugPrint("\nuser-not-found error: ${e.code}\n");
-          } else if(e.code == "wrong-password") {
-            debugPrint("\nwrong-password error: ${e.code}\n");
-          } else if(e.code == "invalid-email") {
-            debugPrint("\ninvalid-email error: ${e.code}\n");
+          if (e.code == "user-not-found") {
+            toastInfo(msg: "No user found for that e-mail");
+          } else if (e.code == "wrong-password") {
+            toastInfo(msg: "Wrong password provided for that user");
+          } else if (e.code == "invalid-email") {
+            toastInfo(msg: "Your e-mail address format is wrong");
           }
         }
       }

@@ -50,6 +50,9 @@ dependencies:
   # parsing, and bidirectional text.
   intl: ^0.18.1
 
+  # Toast Library for Flutter
+  fluttertoast: ^8.2.2
+
   # Firebase libs
   cloud_firestore: ^4.8.0
   firebase_auth: ^4.6.2
