@@ -24,7 +24,7 @@ class _SignInState extends State<SignIn> {
           child: SafeArea(
             child: Scaffold(
               backgroundColor: Colors.white,
-              appBar: buildAppBar(),
+              appBar: buildAppBar(title: "Log In"),
               body: SingleChildScrollView(
                 physics: const BouncingScrollPhysics(),
                 child: Column(
@@ -75,7 +75,7 @@ class _SignInState extends State<SignIn> {
                       "Register",
                       "register",
                       () {
-                        debugPrint("register button");
+                        Navigator.of(context).pushNamed("register");
                       },
                     ),
                   ],
