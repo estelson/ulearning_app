@@ -7,6 +7,7 @@ import 'package:ulearning_app/app_blocs.dart';
 import 'package:ulearning_app/app_events.dart';
 import 'package:ulearning_app/app_states.dart';
 import 'package:ulearning_app/firebase_options.dart';
+import 'package:ulearning_app/pages/sign_in/bloc/sign_in_blocs.dart';
 import 'package:ulearning_app/pages/sign_in/sign_in.dart';
 import 'package:ulearning_app/pages/welcome/bloc/welcome_blocs.dart';
 import 'package:ulearning_app/pages/welcome/welcome.dart';
@@ -30,12 +31,13 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (context) => WelcomeBloc(),
-          // lazy: false,
+          lazy: false,
         ),
         BlocProvider(
           create: (context) => AppBlocs(),
-          // lazy: false,
+          lazy: false,
         ),
+        BlocProvider(create: (context) => SignInBloc())
       ],
       child: ScreenUtilInit(
         builder: (context, child) => MaterialApp(
