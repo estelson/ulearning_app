@@ -23,6 +23,9 @@ class _RegisterState extends State<Register> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                SizedBox(
+                  height: 20.h,
+                ),
                 Center(
                   child: reusableText("Enter your details below & free sign up"),
                 ),
@@ -59,22 +62,25 @@ class _RegisterState extends State<Register> {
                           // context.read<SignInBloc>().add(PasswordEvent(value));
                         },
                       ),
-                      reusableText("Re-enter your password"),
+                      reusableText("Re-enter password"),
                       buildTextField(
-                        "Re-enter password",
+                        "Re-enter your password to confirm",
                         "password",
                         "lock",
                             (value) {
                           // context.read<SignInBloc>().add(PasswordEvent(value));
                         },
                       ),
-                      reusableText("By creating an account you have to agree with our therms & conditions."),
                     ],
                   ),
                 ),
+                Container(
+                  margin: EdgeInsets.only(left: 25.w),
+                  child: reusableText("By creating an account you have to agree with our therms & conditions."),
+                ),
                 buildLogInAndRegButton(
                   "Sign up",
-                  "register",
+                  "login",
                   () {
                     Navigator.of(context).pushNamed("register");
                   },

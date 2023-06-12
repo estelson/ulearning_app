@@ -6,6 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearning_app/app_blocs.dart';
 import 'package:ulearning_app/app_events.dart';
 import 'package:ulearning_app/app_states.dart';
+import 'package:ulearning_app/common/values/colors.dart';
 import 'package:ulearning_app/firebase_options.dart';
 import 'package:ulearning_app/pages/bloc_providers.dart';
 import 'package:ulearning_app/pages/register/register.dart';
@@ -37,6 +38,9 @@ class MyApp extends StatelessWidget {
               elevation: 0,
               centerTitle: true,
               backgroundColor: Colors.white,
+              iconTheme: IconThemeData(
+                color: AppColors.primaryText
+              ),
               // Cor da StatusBar em dispositivos mobile
               systemOverlayStyle: SystemUiOverlayStyle(
                 statusBarColor: Colors.transparent,
