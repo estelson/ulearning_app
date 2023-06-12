@@ -23,10 +23,12 @@ class SignInController {
 
         if (emailAddress.isEmpty) {
           ///
+          debugPrint("\nemail is empty\n");
         }
 
         if (password.isEmpty) {
           ///
+          debugPrint("\npassword is empty\n");
         }
 
         try {
@@ -37,19 +39,31 @@ class SignInController {
 
           if(credential.user == null) {
             ///
+            debugPrint("\nuser does not exists\n");
           }
 
           if(!credential.user!.emailVerified) {
             ///
+            debugPrint("\nemail not verified\n");
           }
 
           var user = credential.user;
           if(user != null) {
             /// We got verified user from Firebase Auth
+            debugPrint("\nuser exists\n");
           } else {
             /// We have error getting user from Firebase Auth
+            debugPrint("\nno user found\n");
           }
-        } catch (e) {}
+        } on FirebaseAuthException catch (e) {
+          if(e.code == "user-not-found") {
+            debugPrint("\nuser-not-found error: ${e.code}\n");
+          } else if(e.code == "wrong-password") {
+            debugPrint("\nwrong-password error: ${e.code}\n");
+          } else if(e.code == "invalid-email") {
+            debugPrint("\ninvalid-email error: ${e.code}\n");
+          }
+        }
       }
     } catch (e) {}
   }

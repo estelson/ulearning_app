@@ -106,7 +106,7 @@ Widget buildTextField(String hintText, String textType, String iconName, void Fu
                   color: Colors.transparent,
                 ),
               ),
-              hintStyle: const  TextStyle(
+              hintStyle: const TextStyle(
                 color: AppColors.primarySecondaryElementText,
               ),
             ),
@@ -145,9 +145,9 @@ Widget forgotPassword() {
   );
 }
 
-Widget buildLogInAndRegButton(String buttonName, String buttonType) {
+Widget buildLogInAndRegButton(String buttonName, String buttonType, void Function()? func) {
   return GestureDetector(
-    onTap: () {},
+    onTap: func,
     child: Container(
       width: 325.w,
       height: 50.h,
