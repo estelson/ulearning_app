@@ -53,9 +53,6 @@ dependencies:
   # A Flutter plugin to use the Cloud Firestore API.
   cloud_firestore: ^4.8.0
 
-
-
-
 dev_dependencies:
   flutter_test:
     sdk: flutter

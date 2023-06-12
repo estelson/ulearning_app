@@ -31,9 +31,18 @@ class _SignInState extends State<SignIn> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   reusableText("E-mail"),
+                  SizedBox(height: 5.h),
                   buildTextField(
-                    "E-mail",
+                    "Enter your e-mail address",
                     "e-mail",
+                    "user"
+                  ),
+                  reusableText("Password"),
+                  SizedBox(height: 5.h),
+                  buildTextField(
+                      "Enter your password",
+                      "password",
+                      "lock"
                   ),
                 ],
               ),
