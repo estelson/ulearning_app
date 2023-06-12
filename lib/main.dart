@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -15,6 +17,9 @@ import 'package:ulearning_app/pages/welcome/welcome.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  setSystemUi();
 
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
@@ -38,17 +43,7 @@ class MyApp extends StatelessWidget {
               elevation: 0,
               centerTitle: true,
               backgroundColor: Colors.white,
-              iconTheme: IconThemeData(
-                color: AppColors.primaryText
-              ),
-              // Cor da StatusBar em dispositivos mobile
-              systemOverlayStyle: SystemUiOverlayStyle(
-                statusBarColor: Colors.transparent,
-                statusBarIconBrightness: Brightness.dark,
-                statusBarBrightness: Brightness.light,
-                systemNavigationBarColor: Colors.transparent,
-                systemNavigationBarIconBrightness: Brightness.dark,
-              ),
+              iconTheme: IconThemeData(color: AppColors.primaryText),
             ),
           ),
           home: const Welcome(),
@@ -117,5 +112,21 @@ class MyHomePage extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+/// Cor da StatusBar em dispositivos mobile
+void setSystemUi() {
+  if (Platform.isAndroid) {
+    SystemUiOverlayStyle systemUiOverlayStyle = const SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      statusBarBrightness: Brightness.light,
+      statusBarIconBrightness: Brightness.dark,
+      systemNavigationBarDividerColor: Colors.transparent,
+      systemNavigationBarColor: Colors.white,
+      systemNavigationBarIconBrightness: Brightness.dark,
+    );
+
+    SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
   }
 }
