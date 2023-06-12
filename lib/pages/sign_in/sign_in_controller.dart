@@ -9,10 +9,10 @@ class SignInController {
   const SignInController({required this.context});
 
   /// Controls the login procedure, using the [type] parameter to receive the login type:
-  /// - Google account
-  /// - Apple account
-  /// - Facebook account
-  /// - Login with email and password.
+  /// - google: Google account
+  /// - apple: Apple account
+  /// - facebook: Facebook account
+  /// - email: Login with email and password.
   Future<void> handleSignIn(String type) async {
     try {
       if (type == "email") {
