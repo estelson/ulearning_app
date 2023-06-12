@@ -17,14 +17,14 @@ class _RegisterState extends State<Register> {
       child: SafeArea(
         child: Scaffold(
           backgroundColor: Colors.white,
-          appBar: buildAppBar(title: "Log In"),
+          appBar: buildAppBar(type: "Sign Up"),
           body: SingleChildScrollView(
             physics: const BouncingScrollPhysics(),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Center(
-                  child: reusableText("Enter your details below && free sign up"),
+                  child: reusableText("Enter your details below & free sign up"),
                 ),
                 Container(
                   margin: EdgeInsets.only(top: 36.h),
@@ -32,18 +32,25 @@ class _RegisterState extends State<Register> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      reusableText("E-mail"),
-                      SizedBox(height: 5.h),
+                      reusableText("User name"),
                       buildTextField(
-                        "Enter your e-mail address",
-                        "e-mail",
+                        "Enter your user name",
+                        "name",
                         "user",
                         (value) {
                           // context.read<SignInBloc>().add(EmailEvent(value));
                         },
                       ),
+                      reusableText("E-mail"),
+                      buildTextField(
+                        "Enter your e-mail address",
+                        "e-mail",
+                        "user",
+                            (value) {
+                          // context.read<SignInBloc>().add(EmailEvent(value));
+                        },
+                      ),
                       reusableText("Password"),
-                      SizedBox(height: 5.h),
                       buildTextField(
                         "Enter your password",
                         "password",
@@ -52,12 +59,21 @@ class _RegisterState extends State<Register> {
                           // context.read<SignInBloc>().add(PasswordEvent(value));
                         },
                       ),
+                      reusableText("Re-enter your password"),
+                      buildTextField(
+                        "Re-enter password",
+                        "password",
+                        "lock",
+                            (value) {
+                          // context.read<SignInBloc>().add(PasswordEvent(value));
+                        },
+                      ),
+                      reusableText("By creating an account you have to agree with our therms & conditions."),
                     ],
                   ),
                 ),
-                forgotPassword(),
                 buildLogInAndRegButton(
-                  "Register",
+                  "Sign up",
                   "register",
                   () {
                     Navigator.of(context).pushNamed("register");

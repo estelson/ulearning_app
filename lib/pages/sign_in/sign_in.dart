@@ -24,7 +24,7 @@ class _SignInState extends State<SignIn> {
           child: SafeArea(
             child: Scaffold(
               backgroundColor: Colors.white,
-              appBar: buildAppBar(title: "Log In"),
+              appBar: buildAppBar(type: "Log In"),
               body: SingleChildScrollView(
                 physics: const BouncingScrollPhysics(),
                 child: Column(
@@ -41,7 +41,6 @@ class _SignInState extends State<SignIn> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           reusableText("E-mail"),
-                          SizedBox(height: 5.h),
                           buildTextField(
                             "Enter your e-mail address",
                             "e-mail",
@@ -51,7 +50,6 @@ class _SignInState extends State<SignIn> {
                             },
                           ),
                           reusableText("Password"),
-                          SizedBox(height: 5.h),
                           buildTextField(
                             "Enter your password",
                             "password",
@@ -72,7 +70,7 @@ class _SignInState extends State<SignIn> {
                       },
                     ),
                     buildLogInAndRegButton(
-                      "Register",
+                      "Sign up",
                       "register",
                       () {
                         Navigator.of(context).pushNamed("register");
