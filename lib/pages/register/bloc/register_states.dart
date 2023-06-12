@@ -1,8 +1,8 @@
 class RegisterStates {
-  String userName;
-  String email;
-  String password;
-  String rePassword;
+  final String userName;
+  final String email;
+  final String password;
+  final String rePassword;
 
-  RegisterStates(this.userName, this.email, this.password, this.rePassword);
+  const RegisterStates(this.userName, this.email, this.password, this.rePassword);
 }
