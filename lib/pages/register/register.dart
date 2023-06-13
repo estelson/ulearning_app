@@ -5,6 +5,7 @@ import 'package:ulearning_app/pages/common_widgets.dart';
 import 'package:ulearning_app/pages/register/bloc/register_blocs.dart';
 import 'package:ulearning_app/pages/register/bloc/register_events.dart';
 import 'package:ulearning_app/pages/register/bloc/register_states.dart';
+import 'package:ulearning_app/pages/register/register_controller.dart';
 
 class Register extends StatefulWidget {
   const Register({super.key});
@@ -88,7 +89,8 @@ class _RegisterState extends State<Register> {
                       "Sign up",
                       "login",
                       () {
-                        Navigator.of(context).pushNamed("register");
+                        // Navigator.of(context).pushNamed("register");
+                        RegisterController(context: context).handleEmailRegister();
                       },
                     ),
                   ],

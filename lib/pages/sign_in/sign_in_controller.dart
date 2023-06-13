@@ -19,7 +19,6 @@ class SignInController {
   Future<void> handleSignIn(String type) async {
     try {
       if (type == "email") {
-        // final state = BlocProvider.of<SignInBloc>(context).state;
         final state = context.read<SignInBloc>().state;
         String emailAddress = state.email;
         String password = state.password;
