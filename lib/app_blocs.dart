@@ -7,14 +7,10 @@ class AppBlocs extends Bloc<AppEvents, AppStates> {
   AppBlocs() : super(InitStates()) {
     on<Increment>((event, emit) {
       emit(AppStates(counter: state.counter + 1));
-
-      debugPrint("${state.counter}");
     });
 
     on<Decrement>((event, emit) {
       emit(AppStates(counter: state.counter - 1));
-
-      debugPrint("${state.counter}");
     });
   }
 }
