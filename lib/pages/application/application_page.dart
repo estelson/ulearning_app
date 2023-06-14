@@ -15,7 +15,7 @@ class ApplicationPage extends StatefulWidget {
 }
 
 class _ApplicationPageState extends State<ApplicationPage> {
-  int _index = 0;
+  // int _index = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class _ApplicationPageState extends State<ApplicationPage> {
           child: SafeArea(
             child: Scaffold(
               backgroundColor: Colors.white,
-              body: buildPage(_index),
+              body: buildPage(state.index),
               bottomNavigationBar: Container(
                 width: 375.w,
                 height: 58.h,
@@ -45,7 +45,7 @@ class _ApplicationPageState extends State<ApplicationPage> {
                   ],
                 ),
                 child: BottomNavigationBar(
-                  currentIndex: _index,
+                  currentIndex: state.index,
                   onTap: (value) {
                     context.read<AppBlocs>().add(TriggerAppEvent(value));
                   },
