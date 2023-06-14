@@ -19,6 +19,7 @@ class _HomePageState extends State<HomePage> {
       body: Container(
         margin: EdgeInsets.symmetric(vertical: 0, horizontal: 25.w),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
               margin: EdgeInsets.only(top: 20.h),
@@ -30,7 +31,18 @@ class _HomePageState extends State<HomePage> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-            )
+            ),
+            Container(
+              margin: EdgeInsets.only(top: 5.h),
+              child: Text(
+                "Estelson",
+                style: TextStyle(
+                  color: AppColors.primaryText,
+                  fontSize: 24.sp,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
           ],
         ),
       ),
