@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ulearning_app/common/routes/names.dart';
-import 'package:ulearning_app/pages/application/application_page.dart';
 import 'package:ulearning_app/pages/register/bloc/register_blocs.dart';
 import 'package:ulearning_app/pages/register/register.dart';
 import 'package:ulearning_app/pages/sign_in/bloc/sign_in_blocs.dart';
@@ -27,11 +26,11 @@ class AppPages {
         page: const Register(),
         bloc: BlocProvider(create: (_) => RegisterBlocs()),
       ),
-      PageEntity(
-        route: AppRoutes.APPLICATION,
-        page: const ApplicationPage(),
-        // bloc: BlocProvider(create: (_) => Application()),
-      ),
+      // PageEntity(
+      //   route: AppRoutes.APPLICATION,
+      //   page: const ApplicationPage(),
+      //   bloc: BlocProvider(create: (_) => Application()),
+      // ),
     ];
   }
 
@@ -53,7 +52,7 @@ class AppPages {
     if (settings.name != null) {
       /// Check for route name matching when navigator gets triggered
       var result = routes().where((element) => element.route == settings.name);
-      if(result.isNotEmpty) {
+      if (result.isNotEmpty) {
         debugPrint("\nvalid route name ${settings.name}\n");
         return MaterialPageRoute(builder: (_) => result.first.page, settings: settings);
       }
