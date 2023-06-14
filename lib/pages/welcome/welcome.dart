@@ -69,7 +69,7 @@ class _WelcomeState extends State<Welcome> {
                       ],
                     ),
                     Positioned(
-                      top: 460.h,
+                      bottom: 100.h,
                       child: DotsIndicator(
                         position: state.page,
                         dotsCount: 3,
