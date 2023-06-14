@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ulearning_app/common/values/colors.dart';
 
 AppBar buildAppBar() {
   return AppBar(
@@ -29,6 +30,20 @@ AppBar buildAppBar() {
             ),
           )
         ],
+      ),
+    ),
+  );
+}
+
+Widget homePageText({required String text, Color color = AppColors.primaryText, double top = 20, double? fontSize, FontWeight fontWeight = FontWeight.normal}) {
+  return Container(
+    margin: EdgeInsets.only(top: top),
+    child: Text(
+      text,
+      style: TextStyle(
+        color: color,
+        fontSize: fontSize,
+        fontWeight: fontWeight,
       ),
     ),
   );

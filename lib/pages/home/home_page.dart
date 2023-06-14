@@ -21,27 +21,17 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              margin: EdgeInsets.only(top: 20.h),
-              child: Text(
-                "Hello",
-                style: TextStyle(
-                  color: AppColors.primaryThirdElementText,
-                  fontSize: 24.sp,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+            homePageText(
+              text: "Hello",
+              color: AppColors.primaryThirdElementText,
+              fontSize: 24.sp,
+              fontWeight: FontWeight.bold,
             ),
-            Container(
-              margin: EdgeInsets.only(top: 5.h),
-              child: Text(
-                "Estelson",
-                style: TextStyle(
-                  color: AppColors.primaryText,
-                  fontSize: 24.sp,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+            homePageText(
+              text: "Estelson",
+              top: 5.h,
+              fontSize: 24.sp,
+              fontWeight: FontWeight.bold,
             ),
           ],
         ),
