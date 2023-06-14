@@ -150,7 +150,10 @@ class _WelcomeState extends State<Welcome> {
               // Navigator.of(context).push(
               //   MaterialPageRoute(builder: (context) => const MyHomePage()),
               // );
+
+              /// Set to true if the app is opening for the first time on the device.
               Global.storageService.setBool(AppConstants.STORAGE_DEVICE_OPEN_FIRST_TIME, true);
+
               Navigator.of(context).pushNamedAndRemoveUntil(
                 "/sign_in",
                 (route) => false,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ulearning_app/common/routes/names.dart';
+import 'package:ulearning_app/global.dart';
 import 'package:ulearning_app/pages/application/application_page.dart';
 import 'package:ulearning_app/pages/application/bloc/app_blocs.dart';
 import 'package:ulearning_app/pages/register/bloc/register_blocs.dart';
@@ -55,12 +56,13 @@ class AppPages {
       /// Check for route name matching when navigator gets triggered
       var result = routes().where((element) => element.route == settings.name);
       if (result.isNotEmpty) {
-        debugPrint("\nvalid route name ${settings.name}\n");
+        bool deviceFirstOpen = Global.storageService.getDeviceFirstOpen();
+        if(result.first.route == AppRoutes.INITIAL && deviceFirstOpen)
+
         return MaterialPageRoute(builder: (_) => result.first.page, settings: settings);
       }
     }
 
-    debugPrint("\ninvalid route name ${settings.name}\n");
     return MaterialPageRoute(builder: (_) => const SignIn(), settings: settings);
   }
 }
