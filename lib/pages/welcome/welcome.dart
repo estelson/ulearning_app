@@ -149,7 +149,7 @@ class _WelcomeState extends State<Welcome> {
               //   MaterialPageRoute(builder: (context) => const MyHomePage()),
               // );
               Navigator.of(context).pushNamedAndRemoveUntil(
-                "signIn",
+                "/sign_in",
                 (route) => false,
               );
             }

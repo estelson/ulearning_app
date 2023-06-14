@@ -38,7 +38,6 @@ class AppPages {
   /// Return a list of all the Bloc providers
   static List<dynamic> allBlocProviders(BuildContext context) {
     List<dynamic> blocProviders = <dynamic>[];
-    // var blocProviders = [];
 
     for (var bloc in routes()) {
       if (bloc.bloc != null) {
@@ -55,10 +54,12 @@ class AppPages {
       /// Check for route name matching when navigator gets triggered
       var result = routes().where((element) => element.route == settings.name);
       if(result.isNotEmpty) {
+        debugPrint("\nvalid route name ${settings.name}\n");
         return MaterialPageRoute(builder: (_) => result.first.page, settings: settings);
       }
     }
-    
+
+    debugPrint("\ninvalid route name ${settings.name}\n");
     return MaterialPageRoute(builder: (_) => const SignIn(), settings: settings);
   }
 }
