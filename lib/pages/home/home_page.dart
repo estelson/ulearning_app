@@ -33,6 +33,8 @@ class _HomePageState extends State<HomePage> {
               fontSize: 24.sp,
               fontWeight: FontWeight.bold,
             ),
+            SizedBox(height: 20.h),
+            searchView(),
           ],
         ),
       ),
