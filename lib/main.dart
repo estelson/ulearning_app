@@ -15,6 +15,7 @@ import 'package:ulearning_app/pages/application/application_page.dart';
 import 'package:ulearning_app/pages/bloc_providers.dart';
 import 'package:ulearning_app/pages/register/register.dart';
 import 'package:ulearning_app/pages/sign_in/sign_in.dart';
+import 'package:ulearning_app/pages/welcome/welcome.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -47,8 +48,9 @@ class MyApp extends StatelessWidget {
               iconTheme: IconThemeData(color: AppColors.primaryText),
             ),
           ),
-          // home: const ApplicationPage(),
-          initialRoute: "/",
+          home: const Welcome(),
+          onGenerateRoute: AppPages.generateRouteSettings,
+          //initialRoute: "/",
           // routes: {
           //   "signIn": (context) => const SignIn(),
           //   "register": (context) => const Register(),

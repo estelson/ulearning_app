@@ -44,6 +44,19 @@ class AppPages {
 
     return blocProviders;
   }
+
+  /// A modal that covers entire screen as we click on navigator object
+  static MaterialPageRoute generateRouteSettings(RouteSettings settings) {
+    if (settings.name != null) {
+      /// Check for route name matching when navigator gets triggered
+      var result = routes().where((element) => element.route == settings.name);
+      if(result.isNotEmpty) {
+        return MaterialPageRoute(builder: (_) => result.first.page, settings: settings);
+      }
+    }
+    
+    return MaterialPageRoute(builder: (_) => const SignIn(), settings: settings);
+  }
 }
 
 /// Unify BlocProvider, routes and pages
