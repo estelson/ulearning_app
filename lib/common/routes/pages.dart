@@ -38,8 +38,12 @@ class AppPages {
   /// Return a list of all the Bloc providers
   static List<dynamic> allBlocProviders(BuildContext context) {
     List<dynamic> blocProviders = <dynamic>[];
+    // var blocProviders = [];
+
     for (var bloc in routes()) {
-      blocProviders.add(bloc.bloc);
+      if (bloc.bloc != null) {
+        blocProviders.add(bloc.bloc);
+      }
     }
 
     return blocProviders;
