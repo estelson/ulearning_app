@@ -5,12 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:ulearning_app/app_blocs.dart';
-import 'package:ulearning_app/app_events.dart';
-import 'package:ulearning_app/app_states.dart';
 import 'package:ulearning_app/common/routes/routes.dart';
 import 'package:ulearning_app/common/values/colors.dart';
 import 'package:ulearning_app/firebase_options.dart';
+import 'package:ulearning_app/pages/application/bloc/app_blocs.dart';
+import 'package:ulearning_app/pages/application/bloc/app_states.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -65,7 +64,7 @@ class MyHomePage extends StatelessWidget {
           statusBarIconBrightness: Brightness.light,
         ),
       ),
-      body: Center(child: BlocBuilder<AppBlocs, AppStates>(
+      body: Center(child: BlocBuilder<AppBlocs, AppState>(
         builder: (context, state) {
           return Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -75,34 +74,34 @@ class MyHomePage extends StatelessWidget {
               ),
               Text(
                 // "${BlocProvider.of<AppBlocs>(context).state.counter}",
-                "${state.counter}",
+                "${state.index}",
                 style: Theme.of(context).textTheme.headlineMedium,
               ),
             ],
           );
         },
       )),
-      floatingActionButton: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          FloatingActionButton(
-            heroTag: "heroTag1",
-            onPressed: () => BlocProvider.of<AppBlocs>(context).add(
-              Decrement(),
-            ),
-            tooltip: 'Decrement',
-            child: const Icon(Icons.remove),
-          ),
-          FloatingActionButton(
-            heroTag: "heroTag2",
-            onPressed: () => BlocProvider.of<AppBlocs>(context).add(
-              Increment(),
-            ),
-            tooltip: 'Increment',
-            child: const Icon(Icons.add),
-          ),
-        ],
-      ),
+      // floatingActionButton: Row(
+      //   mainAxisAlignment: MainAxisAlignment.spaceAround,
+      //   children: [
+      //     FloatingActionButton(
+      //       heroTag: "heroTag1",
+      //       onPressed: () => BlocProvider.of<AppBlocs>(context).add(
+      //         Decrement(),
+      //       ),
+      //       tooltip: 'Decrement',
+      //       child: const Icon(Icons.remove),
+      //     ),
+      //     FloatingActionButton(
+      //       heroTag: "heroTag2",
+      //       onPressed: () => BlocProvider.of<AppBlocs>(context).add(
+      //         Increment(),
+      //       ),
+      //       tooltip: 'Increment',
+      //       child: const Icon(Icons.add),
+      //     ),
+      //   ],
+      // ),
     );
   }
 }
