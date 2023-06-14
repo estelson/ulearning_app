@@ -56,13 +56,13 @@ class AppPages {
       /// Check for route name matching when navigator gets triggered
       var result = routes().where((element) => element.route == settings.name);
       if (result.isNotEmpty) {
-        debugPrint("First login");
-        debugPrint(result.first.route);
-
         bool deviceFirstOpen = Global.storageService.getDeviceFirstOpen();
-        if(result.first.route == AppRoutes.INITIAL && deviceFirstOpen) {
-          debugPrint("second login");
 
+        if(result.first.route == AppRoutes.INITIAL && deviceFirstOpen) {
+          bool isLoggedIn = Global.storageService.getIsLoggedIn();
+          if(isLoggedIn) {
+            return MaterialPageRoute(builder: (_) => const ApplicationPage(), settings: settings);
+          }
 
           return MaterialPageRoute(builder: (_) => const SignIn(), settings: settings);
         }

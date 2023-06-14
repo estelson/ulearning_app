@@ -3,7 +3,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ulearning_app/common/values/constant.dart';
 import 'package:ulearning_app/common/widgets/flutter_toast.dart';
+import 'package:ulearning_app/global.dart';
 import 'package:ulearning_app/pages/sign_in/bloc/sign_in_blocs.dart';
 
 class SignInController {
@@ -57,6 +59,9 @@ class SignInController {
           if (user != null) {
             /// We got verified user from Firebase Auth
             debugPrint("\nuser exists\n");
+
+            /// Sets a unique key for each already logged in user (TODO: To be changed in next sections)
+            Global.storageService.setString(AppConstants.STORAGE_USER_TOKEN_KEY, "12345678");
 
             Navigator.of(context).pushNamedAndRemoveUntil("/application", (route) => false);
           } else {
