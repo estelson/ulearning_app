@@ -141,21 +141,29 @@ Widget slidersView() {
         width: 325.w,
         height: 160.h,
         child: PageView(
+          physics: const BouncingScrollPhysics(),
           children: [
-            Container(
-              width: 325.w,
-              height: 160.h,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(20.h)),
-                image: const DecorationImage(
-                  fit: BoxFit.fill,
-                  image: AssetImage("assets/icons/art.png"),
-                )
-              ),
-            ),
+            _slidersContainer(path: "assets/icons/art.png"),
+            _slidersContainer(path: "assets/icons/Image_1.png"),
+            _slidersContainer(path: "assets/icons/Image_2.png"),
           ],
         ),
       ),
     ],
+  );
+}
+
+/// Sliders widget
+Widget _slidersContainer({String path = "assets/icons/art.png"}) {
+  return Container(
+    width: 325.w,
+    height: 160.h,
+    decoration: BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(20.h)),
+        image: DecorationImage(
+          fit: BoxFit.fill,
+          image: AssetImage(path),
+        )
+    ),
   );
 }
