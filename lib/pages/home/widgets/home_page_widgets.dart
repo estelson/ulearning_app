@@ -36,8 +36,13 @@ AppBar buildAppBar() {
 }
 
 ///Reusable text widget
-Widget homePageText(
-    {required String text, Color color = AppColors.primaryText, double top = 20, double? fontSize, FontWeight fontWeight = FontWeight.normal}) {
+Widget homePageText({
+  required String text,
+  Color color = AppColors.primaryText,
+  double top = 20,
+  double? fontSize,
+  FontWeight fontWeight = FontWeight.normal,
+}) {
   return Container(
     margin: EdgeInsets.only(top: top),
     child: Text(
@@ -71,7 +76,6 @@ Widget searchView() {
               height: 16.w,
               child: Image.asset("assets/icons/search.png"),
             ),
-
             Container(
               width: 240.w,
               height: 40.h,
@@ -109,7 +113,6 @@ Widget searchView() {
                 obscureText: false,
               ),
             ),
-
           ],
         ),
       ),
@@ -125,6 +128,34 @@ Widget searchView() {
           child: Image.asset("assets/icons/options.png"),
         ),
       )
+    ],
+  );
+}
+
+/// Reusable sliders view
+Widget slidersView() {
+  return Column(
+    children: [
+      Container(
+        margin: EdgeInsets.only(top: 20.h),
+        width: 325.w,
+        height: 160.h,
+        child: PageView(
+          children: [
+            Container(
+              width: 325.w,
+              height: 160.h,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(20.h)),
+                image: const DecorationImage(
+                  fit: BoxFit.fill,
+                  image: AssetImage("assets/icons/art.png"),
+                )
+              ),
+            ),
+          ],
+        ),
+      ),
     ],
   );
 }
