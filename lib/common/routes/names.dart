@@ -12,4 +12,7 @@ class AppRoutes {
 
   /// Application page
   static const APPLICATION = "/application";
+
+  /// Home page
+  static const HOME_PAGE = "/home_page";
 }
