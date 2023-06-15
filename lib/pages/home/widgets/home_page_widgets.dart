@@ -194,6 +194,9 @@ Widget _slidersContainer({String path = "assets/icons/art.png"}) {
 Widget menuView() {
   return Column(
     children: [
+      /*Container(
+        width: 325.w,
+        child: */
       Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.end,
@@ -213,6 +216,28 @@ Widget menuView() {
           )
         ],
       ),
+      /*),*/
+      Container(
+        margin: EdgeInsets.only(top: 20.w),
+        child: Row(
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                color: AppColors.primaryElement,
+                borderRadius: BorderRadius.circular(7.w),
+                border: Border.all(color: AppColors.primaryElement),
+              ),
+              padding: EdgeInsets.only(left: 15.w, right: 15.w, top: 5.h, bottom: 5.h),
+              child: homePageText(
+                text: "All",
+                textColor: AppColors.primaryElementText,
+                marginTop: 0,
+                fontSize: 11.sp,
+              ),
+            ),
+          ],
+        ),
+      )
     ],
   );
 }
