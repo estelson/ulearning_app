@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ulearning_app/pages/profile/widgets/profile_widgets.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -10,10 +11,9 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Center(
-        child: Text("hello"),
-      ),
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: buildAppBar(),
     );
   }
 }
