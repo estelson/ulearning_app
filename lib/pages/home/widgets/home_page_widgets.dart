@@ -45,7 +45,7 @@ Widget homePageText({
   required String text,
   Color textColor = AppColors.primaryText,
   double marginTop = 20,
-  double? fontSize,
+  int fontSize = 16,
   FontWeight fontWeight = FontWeight.normal,
 }) {
   return Container(
@@ -54,7 +54,7 @@ Widget homePageText({
       text,
       style: TextStyle(
         color: textColor,
-        fontSize: fontSize,
+        fontSize: fontSize.sp,
         fontWeight: fontWeight,
       ),
     ),
@@ -205,13 +205,14 @@ Widget menuView() {
             text: "Choose your course",
             marginTop: 15,
             fontWeight: FontWeight.bold,
-            fontSize: 16.sp,
+            fontSize: 16,
           ),
           GestureDetector(
             child: homePageText(
               text: "See all",
               textColor: AppColors.primaryThirdElementText,
               marginTop: 15,
+              fontSize: 14,
             ),
           )
         ],
@@ -240,8 +241,11 @@ Widget menuView() {
 }
 
 /// Items of menu view
-Widget _reusableMenuViewItemText(
-    {required String menuItemText, Color textColor = AppColors.primaryElementText, Color backgroundColor = AppColors.primaryElement}) {
+Widget _reusableMenuViewItemText({
+  required String menuItemText,
+  Color textColor = AppColors.primaryElementText,
+  Color backgroundColor = AppColors.primaryElement,
+}) {
   return Container(
     margin: EdgeInsets.only(right: 8.w),
     decoration: BoxDecoration(
@@ -255,6 +259,51 @@ Widget _reusableMenuViewItemText(
       textColor: textColor,
       marginTop: 0,
       fontSize: 14,
+    ),
+  );
+}
+
+/// Course grid view UI
+Widget courseGrid(/*{required AssetImage image, String title = "", String subtitle = ""}*/) {
+  return Container(
+    padding: EdgeInsets.all(10.w),
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(15.w),
+      image: const DecorationImage(
+        fit: BoxFit.fill,
+        image: AssetImage("assets/icons/Image_2.png"),
+      ),
+    ),
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.end,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          "Best course for IT and Engineering",
+          maxLines: 1,
+          textAlign: TextAlign.left,
+          overflow: TextOverflow.fade,
+          softWrap: false,
+          style: TextStyle(
+            color: AppColors.primaryElementText,
+            fontWeight: FontWeight.bold,
+            fontSize: 11.sp,
+          ),
+        ),
+        SizedBox(height: 5.h),
+        Text(
+          "Flutter best course",
+          maxLines: 1,
+          textAlign: TextAlign.left,
+          overflow: TextOverflow.fade,
+          softWrap: false,
+          style: TextStyle(
+            color: AppColors.primaryFourthElementText,
+            fontWeight: FontWeight.normal,
+            fontSize: 10.sp,
+          ),
+        ),
+      ],
     ),
   );
 }

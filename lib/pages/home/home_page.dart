@@ -30,7 +30,7 @@ class _HomePageState extends State<HomePage> {
                 child: homePageText(
                   text: "Hello",
                   textColor: AppColors.primaryThirdElementText,
-                  fontSize: 24.sp,
+                  fontSize: 24,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -38,7 +38,7 @@ class _HomePageState extends State<HomePage> {
                 child: homePageText(
                   text: "Estelson",
                   marginTop: 5.h,
-                  fontSize: 24.sp,
+                  fontSize: 24,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -67,32 +67,7 @@ class _HomePageState extends State<HomePage> {
                     (BuildContext context, int index) {
                       return GestureDetector(
                         onTap: () {},
-                        child: Container(
-                          padding: EdgeInsets.all(12.w),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Container(
-                                child: Text(
-                                  "Best course for IT",
-                                  style: TextStyle(
-                                    color: AppColors.primaryElementText,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 11.sp,
-
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(15.w),
-                            image: DecorationImage(
-                              fit: BoxFit.fill,
-                              image: AssetImage("assets/icons/Image_1.png"),
-                            ),
-                          ),
-                        ),
+                        child: courseGrid(),
                       );
                     },
                     childCount: 4,
