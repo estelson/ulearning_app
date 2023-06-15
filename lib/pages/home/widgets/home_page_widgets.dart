@@ -49,7 +49,7 @@ Widget homePageText({
   FontWeight fontWeight = FontWeight.normal,
 }) {
   return Container(
-    margin: EdgeInsets.only(top: marginTop),
+    margin: EdgeInsets.only(top: marginTop.h),
     child: Text(
       text,
       style: TextStyle(
@@ -222,8 +222,16 @@ Widget menuView() {
         child: Row(
           children: [
             _reusableMenuText(menuItemText: "All"),
-            _reusableMenuText(menuItemText: "Popular"),
-            _reusableMenuText(menuItemText: "Newest"),
+            _reusableMenuText(
+              menuItemText: "Popular",
+              textColor: AppColors.primaryThirdElementText,
+              backgroundColor: Colors.white,
+            ),
+            _reusableMenuText(
+              menuItemText: "Newest",
+              textColor: AppColors.primaryThirdElementText,
+              backgroundColor: Colors.white,
+            ),
           ],
         ),
       )
@@ -231,20 +239,22 @@ Widget menuView() {
   );
 }
 
-Widget _reusableMenuText({required String menuItemText}) {
+/// Items of menu view
+Widget _reusableMenuText(
+    {required String menuItemText, Color textColor = AppColors.primaryElementText, Color backgroundColor = AppColors.primaryElement}) {
   return Container(
-    margin: EdgeInsets.only(right: 20.w),
+    margin: EdgeInsets.only(right: 8.w),
     decoration: BoxDecoration(
-      color: AppColors.primaryElement,
+      color: backgroundColor,
       borderRadius: BorderRadius.circular(7.w),
-      border: Border.all(color: AppColors.primaryElement),
+      border: Border.all(color: backgroundColor),
     ),
     padding: EdgeInsets.only(left: 15.w, right: 15.w, top: 5.h, bottom: 5.h),
     child: homePageText(
       text: menuItemText,
-      textColor: AppColors.primaryElementText,
+      textColor: textColor,
       marginTop: 0,
-      fontSize: 11.sp,
+      fontSize: 14,
     ),
   );
 }
