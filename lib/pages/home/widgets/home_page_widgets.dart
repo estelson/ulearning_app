@@ -1,3 +1,4 @@
+import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearning_app/common/values/colors.dart';
@@ -149,6 +150,20 @@ Widget slidersView() {
           ],
         ),
       ),
+      Container(
+        child: DotsIndicator(
+          dotsCount: 3,
+          position: 1,
+          decorator: DotsDecorator(
+            activeColor: AppColors.primaryElement,
+            size: const Size.square(5.0),
+            activeSize: const Size(17.0, 5.0),
+            activeShape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(5.0),
+            ),
+          ),
+        ),
+      )
     ],
   );
 }
@@ -163,7 +178,6 @@ Widget _slidersContainer({String path = "assets/icons/art.png"}) {
         image: DecorationImage(
           fit: BoxFit.fill,
           image: AssetImage(path),
-        )
-    ),
+        )),
   );
 }
