@@ -43,7 +43,7 @@ AppBar buildAppBar() {
 ///Reusable text widget
 Widget homePageText({
   required String text,
-  Color color = AppColors.primaryText,
+  Color textColor = AppColors.primaryText,
   double marginTop = 20,
   double? fontSize,
   FontWeight fontWeight = FontWeight.normal,
@@ -53,7 +53,7 @@ Widget homePageText({
     child: Text(
       text,
       style: TextStyle(
-        color: color,
+        color: textColor,
         fontSize: fontSize,
         fontWeight: fontWeight,
       ),
@@ -195,12 +195,21 @@ Widget menuView() {
   return Column(
     children: [
       Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           homePageText(
             text: "Choose your course",
             marginTop: 15,
             fontWeight: FontWeight.bold,
             fontSize: 16.sp,
+          ),
+          GestureDetector(
+            child: homePageText(
+              text: "See all",
+              textColor: AppColors.primaryThirdElementText,
+              marginTop: 15,
+            ),
           )
         ],
       ),

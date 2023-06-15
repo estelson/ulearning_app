@@ -28,7 +28,7 @@ class _HomePageState extends State<HomePage> {
               children: [
                 homePageText(
                   text: "Hello",
-                  color: AppColors.primaryThirdElementText,
+                  textColor: AppColors.primaryThirdElementText,
                   fontSize: 24.sp,
                   fontWeight: FontWeight.bold,
                 ),
