@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ulearning_app/common/routes/routes.dart';
 import 'package:ulearning_app/common/values/colors.dart';
 
 AppBar buildAppBar() {
@@ -62,12 +63,18 @@ var imagesInfo = <String, String>{
   "Learning reminders": "cube.png",
 };
 
-Widget buildListView() {
+void func() {
+  debugPrint("onTapped");
+}
+
+Widget buildListView(BuildContext context) {
   return Column(
     children: [
       ...List.generate(
         imagesInfo.length,
         (index) => GestureDetector(
+          // onTap: () => Navigator.of(context).pushNamed(AppRoutes.SETTINGS),
+          onTap: func,
           child: Container(
             margin: EdgeInsets.only(bottom: 15.h),
             child: Row(
