@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearning_app/common/values/colors.dart';
+import 'package:ulearning_app/common/widgets/base_text_widget.dart';
 import 'package:ulearning_app/pages/home/bloc/home_page_blocs.dart';
 import 'package:ulearning_app/pages/home/bloc/home_page_events.dart';
 import 'package:ulearning_app/pages/home/bloc/home_page_states.dart';
@@ -35,27 +36,6 @@ AppBar buildAppBar() {
             ),
           )
         ],
-      ),
-    ),
-  );
-}
-
-///Reusable text widget
-Widget homePageText({
-  required String text,
-  Color textColor = AppColors.primaryText,
-  double marginTop = 20,
-  int fontSize = 16,
-  FontWeight fontWeight = FontWeight.normal,
-}) {
-  return Container(
-    margin: EdgeInsets.only(top: marginTop.h),
-    child: Text(
-      text,
-      style: TextStyle(
-        color: textColor,
-        fontSize: fontSize.sp,
-        fontWeight: fontWeight,
       ),
     ),
   );
@@ -201,14 +181,14 @@ Widget menuView() {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          homePageText(
+          reusableText(
             text: "Choose your course",
             marginTop: 15,
             fontWeight: FontWeight.bold,
             fontSize: 16,
           ),
           GestureDetector(
-            child: homePageText(
+            child: reusableText(
               text: "See all",
               textColor: AppColors.primaryThirdElementText,
               marginTop: 15,
@@ -254,7 +234,7 @@ Widget _reusableMenuViewItemText({
       border: Border.all(color: backgroundColor),
     ),
     padding: EdgeInsets.only(left: 15.w, right: 15.w, top: 5.h, bottom: 5.h),
-    child: homePageText(
+    child: reusableText(
       text: menuItemText,
       textColor: textColor,
       marginTop: 0,

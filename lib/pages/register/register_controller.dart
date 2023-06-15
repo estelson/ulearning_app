@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -39,10 +41,10 @@ class RegisterController {
         password: password,
       );
 
-      if(credential.user != null) {
+      if (credential.user != null) {
         await credential.user?.sendEmailVerification();
         await credential.user?.updateDisplayName(userName);
-        
+
         toastInfo(msg: "An e-mail has been sent to your registered e-mail.\nTo activate it, please check your e-mail box and click on the link");
 
         Navigator.of(context).pop();

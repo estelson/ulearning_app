@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_unnecessary_containers
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearning_app/common/values/colors.dart';
@@ -18,7 +20,6 @@ AppBar buildAppBar() {
     ),
   );
 }
-
 
 Widget settingsButton(BuildContext context, void Function()? func) {
   return GestureDetector(
@@ -47,9 +48,9 @@ Widget settingsButton(BuildContext context, void Function()? func) {
       height: 100.w,
       decoration: const BoxDecoration(
           image: DecorationImage(
-            fit: BoxFit.fitHeight,
-            image: AssetImage("assets/icons/Logout.png"),
-          )),
+        fit: BoxFit.fitHeight,
+        image: AssetImage("assets/icons/Logout.png"),
+      )),
     ),
   );
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearning_app/common/values/colors.dart';
+import 'package:ulearning_app/common/widgets/base_text_widget.dart';
 import 'package:ulearning_app/pages/home/bloc/home_page_blocs.dart';
 import 'package:ulearning_app/pages/home/bloc/home_page_states.dart';
 import 'package:ulearning_app/pages/home/widgets/home_page_widgets.dart';
@@ -27,7 +28,7 @@ class _HomePageState extends State<HomePage> {
             // crossAxisAlignment: CrossAxisAlignment.start,
             slivers: [
               SliverToBoxAdapter(
-                child: homePageText(
+                child: reusableText(
                   text: "Hello",
                   textColor: AppColors.primaryThirdElementText,
                   fontSize: 24,
@@ -35,7 +36,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               SliverToBoxAdapter(
-                child: homePageText(
+                child: reusableText(
                   text: "Estelson",
                   marginTop: 5.h,
                   fontSize: 24,
