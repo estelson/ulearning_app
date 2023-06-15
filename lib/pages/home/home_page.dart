@@ -54,6 +54,26 @@ class _HomePageState extends State<HomePage> {
               SliverToBoxAdapter(
                 child: menuView(),
               ),
+              SliverPadding(
+                padding: EdgeInsets.symmetric(vertical: 18.h, horizontal: 0.w),
+                sliver: SliverGrid(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    mainAxisSpacing: 15,
+                    crossAxisSpacing: 15,
+                  ),
+                  delegate: SliverChildBuilderDelegate(
+                    (BuildContext context, int index) {
+                      return Container(
+                        width: 100,
+                        height: 100,
+                        color: Colors.red,
+                      );
+                    },
+                    childCount: 4,
+                  ),
+                ),
+              ),
             ],
           ),
         );
