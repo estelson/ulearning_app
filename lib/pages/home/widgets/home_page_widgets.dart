@@ -221,23 +221,30 @@ Widget menuView() {
         margin: EdgeInsets.only(top: 20.w),
         child: Row(
           children: [
-            Container(
-              decoration: BoxDecoration(
-                color: AppColors.primaryElement,
-                borderRadius: BorderRadius.circular(7.w),
-                border: Border.all(color: AppColors.primaryElement),
-              ),
-              padding: EdgeInsets.only(left: 15.w, right: 15.w, top: 5.h, bottom: 5.h),
-              child: homePageText(
-                text: "All",
-                textColor: AppColors.primaryElementText,
-                marginTop: 0,
-                fontSize: 11.sp,
-              ),
-            ),
+            _reusableMenuText(menuItemText: "All"),
+            _reusableMenuText(menuItemText: "Popular"),
+            _reusableMenuText(menuItemText: "Newest"),
           ],
         ),
       )
     ],
+  );
+}
+
+Widget _reusableMenuText({required String menuItemText}) {
+  return Container(
+    margin: EdgeInsets.only(right: 20.w),
+    decoration: BoxDecoration(
+      color: AppColors.primaryElement,
+      borderRadius: BorderRadius.circular(7.w),
+      border: Border.all(color: AppColors.primaryElement),
+    ),
+    padding: EdgeInsets.only(left: 15.w, right: 15.w, top: 5.h, bottom: 5.h),
+    child: homePageText(
+      text: menuItemText,
+      textColor: AppColors.primaryElementText,
+      marginTop: 0,
+      fontSize: 11.sp,
+    ),
   );
 }
