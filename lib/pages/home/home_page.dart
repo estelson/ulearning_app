@@ -61,14 +61,38 @@ class _HomePageState extends State<HomePage> {
                     crossAxisCount: 2,
                     mainAxisSpacing: 15,
                     crossAxisSpacing: 15,
-                    childAspectRatio: 1.6
+                    childAspectRatio: 1.6,
                   ),
                   delegate: SliverChildBuilderDelegate(
                     (BuildContext context, int index) {
-                      return Container(
-                        // width: 100,
-                        // height: 100,
-                        color: Colors.red,
+                      return GestureDetector(
+                        onTap: () {},
+                        child: Container(
+                          padding: EdgeInsets.all(12.w),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Container(
+                                child: Text(
+                                  "Best course for IT",
+                                  style: TextStyle(
+                                    color: AppColors.primaryElementText,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 11.sp,
+
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15.w),
+                            image: DecorationImage(
+                              fit: BoxFit.fill,
+                              image: AssetImage("assets/icons/Image_1.png"),
+                            ),
+                          ),
+                        ),
                       );
                     },
                     childCount: 4,
