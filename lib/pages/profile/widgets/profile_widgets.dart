@@ -73,8 +73,8 @@ Widget buildListView(BuildContext context) {
       ...List.generate(
         imagesInfo.length,
         (index) => GestureDetector(
-          // onTap: () => Navigator.of(context).pushNamed(AppRoutes.SETTINGS),
-          onTap: func,
+          onTap: () => Navigator.of(context).pushNamed(AppRoutes.SETTINGS),
+          // onTap: func,
           child: Container(
             margin: EdgeInsets.only(bottom: 15.h),
             child: Row(
