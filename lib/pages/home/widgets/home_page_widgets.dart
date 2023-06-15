@@ -221,13 +221,13 @@ Widget menuView() {
         margin: EdgeInsets.only(top: 20.w),
         child: Row(
           children: [
-            _reusableMenuText(menuItemText: "All"),
-            _reusableMenuText(
+            _reusableMenuViewItemText(menuItemText: "All"),
+            _reusableMenuViewItemText(
               menuItemText: "Popular",
               textColor: AppColors.primaryThirdElementText,
               backgroundColor: Colors.white,
             ),
-            _reusableMenuText(
+            _reusableMenuViewItemText(
               menuItemText: "Newest",
               textColor: AppColors.primaryThirdElementText,
               backgroundColor: Colors.white,
@@ -240,7 +240,7 @@ Widget menuView() {
 }
 
 /// Items of menu view
-Widget _reusableMenuText(
+Widget _reusableMenuViewItemText(
     {required String menuItemText, Color textColor = AppColors.primaryElementText, Color backgroundColor = AppColors.primaryElement}) {
   return Container(
     margin: EdgeInsets.only(right: 8.w),

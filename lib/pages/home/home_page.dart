@@ -19,34 +19,45 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: buildAppBar(),
-      body: BlocBuilder<HomePageBlocs, HomePageStates> (
-        builder: (context, state) {
-          return Container(
-            margin: EdgeInsets.symmetric(vertical: 0, horizontal: 25.w),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                homePageText(
+      body: BlocBuilder<HomePageBlocs, HomePageStates>(builder: (context, state) {
+        return Container(
+          margin: EdgeInsets.symmetric(vertical: 0, horizontal: 25.w),
+          child: CustomScrollView(
+            physics: const BouncingScrollPhysics(),
+            // crossAxisAlignment: CrossAxisAlignment.start,
+            slivers: [
+              SliverToBoxAdapter(
+                child: homePageText(
                   text: "Hello",
                   textColor: AppColors.primaryThirdElementText,
                   fontSize: 24.sp,
                   fontWeight: FontWeight.bold,
                 ),
-                homePageText(
+              ),
+              SliverToBoxAdapter(
+                child: homePageText(
                   text: "Estelson",
                   marginTop: 5.h,
                   fontSize: 24.sp,
                   fontWeight: FontWeight.bold,
                 ),
-                SizedBox(height: 20.h),
-                searchView(),
-                slidersView(context, state),
-                menuView(),
-              ],
-            ),
-          );
-        }
-      ),
+              ),
+              SliverPadding(
+                padding: EdgeInsets.only(top: 20.h),
+              ),
+              SliverToBoxAdapter(
+                child: searchView(),
+              ),
+              SliverToBoxAdapter(
+                child: slidersView(context, state),
+              ),
+              SliverToBoxAdapter(
+                child: menuView(),
+              ),
+            ],
+          ),
+        );
+      }),
     );
   }
 }
