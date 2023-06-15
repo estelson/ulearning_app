@@ -185,7 +185,6 @@ Widget menuView() {
             text: "Choose your course",
             marginTop: 15,
             fontWeight: FontWeight.bold,
-            fontSize: 16,
           ),
           GestureDetector(
             child: reusableText(
