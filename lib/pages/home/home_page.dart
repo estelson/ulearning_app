@@ -34,13 +34,14 @@ class _HomePageState extends State<HomePage> {
                 ),
                 homePageText(
                   text: "Estelson",
-                  top: 5.h,
+                  marginTop: 5.h,
                   fontSize: 24.sp,
                   fontWeight: FontWeight.bold,
                 ),
                 SizedBox(height: 20.h),
                 searchView(),
                 slidersView(context, state),
+                menuView(),
               ],
             ),
           );

@@ -44,12 +44,12 @@ AppBar buildAppBar() {
 Widget homePageText({
   required String text,
   Color color = AppColors.primaryText,
-  double top = 20,
+  double marginTop = 20,
   double? fontSize,
   FontWeight fontWeight = FontWeight.normal,
 }) {
   return Container(
-    margin: EdgeInsets.only(top: top),
+    margin: EdgeInsets.only(top: marginTop),
     child: Text(
       text,
       style: TextStyle(
@@ -187,5 +187,23 @@ Widget _slidersContainer({String path = "assets/icons/art.png"}) {
           fit: BoxFit.fill,
           image: AssetImage(path),
         )),
+  );
+}
+
+/// Menu view for showing items
+Widget menuView() {
+  return Column(
+    children: [
+      Row(
+        children: [
+          homePageText(
+            text: "Choose your course",
+            marginTop: 15,
+            fontWeight: FontWeight.bold,
+            fontSize: 16.sp,
+          )
+        ],
+      ),
+    ],
   );
 }
